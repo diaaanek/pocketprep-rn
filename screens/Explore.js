@@ -7,7 +7,8 @@ import {
   ScrollView,
   FlatList,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator
 } from "react-native";
 import Icon from "react-native-vector-icons";
 import { LinearGradient } from "expo";
@@ -19,8 +20,7 @@ const { width, height } = Dimensions.get("window");
 
 class Explore extends Component {
   state = {
-    searchFocus: new Animated.Value(0.6),
-    searchString: null,
+    loading: true,
     countries: [
       {
         name: "What is a closure?",
@@ -44,74 +44,23 @@ class Explore extends Component {
     }).start();
   }
 
-  renderSearch() {
-    const { searchString, searchFocus } = this.state;
-    const isEditing = searchFocus && searchString;
+  handleListTap = item => {
+    console.log(item.name);
+    this.props.navigation.navigate("Product", {
+      title: item.data.title,
+      imageSrc: item.data.preview.images[0].source.url
+    });
+  };
 
-    return (
-      <Block animated middle flex={searchFocus} style={styles.search}>
-        <Input
-          placeholder="Search"
-          placeholderTextColor={theme.colors.gray2}
-          style={styles.searchInput}
-          onFocus={() => this.handleSearchFocus(true)}
-          onBlur={() => this.handleSearchFocus(false)}
-          onChangeText={text => this.setState({ searchString: text })}
-          value={searchString}
-          onRightPress={() =>
-            isEditing ? this.setState({ searchString: null }) : null
-          }
-          rightStyle={styles.searchRight}
-          rightLabel={
-            <Icon.FontAwesome
-              name={isEditing ? "close" : "search"}
-              size={theme.sizes.base / 1.6}
-              color={theme.colors.gray2}
-              style={styles.searchIcon}
-            />
-          }
-        />
-      </Block>
-    );
-  }
-
-  renderImage(img, index) {
-    const { navigation } = this.props;
-    const sizes = Image.resolveAssetSource(img);
-    const fullWidth = width - theme.sizes.padding * 2.5;
-    const resize = (sizes.width * 100) / fullWidth;
-    const imgWidth = resize > 75 ? fullWidth : sizes.width * 1;
-
-    return (
-      <TouchableOpacity
-        key={`img-${index}`}
-        onPress={() => navigation.navigate("Product")}
-      >
-        <Image
-          source={img}
-          style={[styles.image, { minWidth: imgWidth, maxWidth: imgWidth }]}
-        />
-      </TouchableOpacity>
-    );
-  }
-
-  renderExplore() {
-    const { images, navigation } = this.props;
-    const mainImage = images[0];
-
-    return (
-      <Block style={{ marginBottom: height / 3 }}>
-        <TouchableOpacity
-          style={[styles.image, styles.mainImage]}
-          onPress={() => navigation.navigate("Product")}
-        >
-          <Image source={mainImage} style={[styles.image, styles.mainImage]} />
-        </TouchableOpacity>
-        <Block row space="between" wrap>
-          {images.slice(1).map((img, index) => this.renderImage(img, index))}
-        </Block>
-      </Block>
-    );
+  componentWillMount() {
+    fetch("https://reddit.com/r/aww.json?raw_json=1")
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          loading: false,
+          posts: data.data.children
+        });
+      });
   }
 
   render() {
@@ -121,13 +70,16 @@ class Explore extends Component {
           <Text h1 bold>
             Javascript
           </Text>
-          {this.renderSearch()}
         </Block>
+        {this.state.loading && (
+          <ActivityIndicator size="large" color="#0000ff" />
+        )}
         <FlatList
           keyExtractor={item => item.name}
-          data={this.state.countries}
+          data={this.state.posts}
+          keyExtractor={item => item.data.id}
           renderItem={({ item }) => (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.handleListTap(item)}>
               <Text
                 body
                 style={{
@@ -143,15 +95,11 @@ class Explore extends Component {
                   elevation: 2
                 }}
               >
-                {item.name}
+                {item.data.title}
               </Text>
             </TouchableOpacity>
           )}
         />
-
-        {/* <ScrollView showsVerticalScrollIndicator={false} style={styles.explore}>
-          {this.renderExplore()}
-        </ScrollView> */}
       </Block>
     );
   }

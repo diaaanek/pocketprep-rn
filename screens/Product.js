@@ -56,9 +56,13 @@ class Product extends Component {
 
         <Block style={styles.product}>
           <Text h2 bold>
-            {product.name}
+            {this.props.navigation.getParam("title", "no title")}
           </Text>
-          <Block flex={false} row margin={[theme.sizes.base, 0]}>
+          <Image
+            style={{ width: "100%", height: "100%" }}
+            source={{ uri: this.props.navigation.getParam("imageSrc", "") }}
+          />
+          {/* <Block flex={false} row margin={[theme.sizes.base, 0]}>
             {product.tags.map(tag => (
               <Text key={`tag-${tag}`} caption gray style={styles.tag}>
                 {tag}
@@ -67,11 +71,11 @@ class Product extends Component {
           </Block>
           <Text body gray light height={22}>
             {product.description}
-          </Text>
+          </Text> */}
 
           <Divider margin={[theme.sizes.padding * 0.9, 0]} />
 
-          <Block>
+          {/* <Block>
             <Text body semibold>
               Resources
             </Text>
@@ -94,7 +98,7 @@ class Product extends Component {
                 <Text gray>+{product.images.slice(3).length}</Text>
               </Block>
             </Block>
-          </Block>
+          </Block> */}
         </Block>
       </ScrollView>
     );
