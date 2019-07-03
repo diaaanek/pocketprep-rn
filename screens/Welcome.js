@@ -34,7 +34,7 @@ class Welcome extends Component {
           padding={[theme.sizes.padding * 2, theme.sizes.padding]}
           space="between"
         >
-          <Text h2 light>
+          <Text h2 primary light>
             Terms of Service
           </Text>
 
@@ -182,7 +182,7 @@ class Welcome extends Component {
             Curated lists of tech interview prep
           </Text>
         </Block>
-        <Block center middle>
+        <Block center middle style={{ marginTop: 25 }}>
           {this.renderIllustrations()}
           {this.renderSteps()}
         </Block>

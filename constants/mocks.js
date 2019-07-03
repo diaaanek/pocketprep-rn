@@ -1,45 +1,45 @@
 const categories = [
   {
-    id: "plants",
+    id: "1",
     name: "General",
     tags: ["topics", "inspirations"],
     count: 147,
     image: require("../assets/icons/question.png")
   },
   {
-    id: "seeds",
+    id: "2",
     name: "HTML/CSS",
-    tags: ["topics", "shop"],
+    tags: ["topics", "more"],
     count: 16,
-    image: require("../assets/icons/question.png")
+    image: require("../assets/icons/html.png")
   },
   {
-    id: "flowers",
+    id: "3",
     name: "Javascript",
     tags: ["topics", "inspirations"],
     count: 68,
-    image: require("../assets/icons/question.png")
+    image: require("../assets/icons/javascript.png")
   },
   {
-    id: "sprayers",
+    id: "4",
     name: "UX/UI",
-    tags: ["topics", "shop"],
+    tags: ["topics", "more"],
     count: 17,
-    image: require("../assets/icons/question.png")
+    image: require("../assets/icons/browser.png")
   },
   {
-    id: "pots",
+    id: "5",
     name: "Product",
-    tags: ["topics", "shop"],
+    tags: ["topics", "more"],
     count: 47,
-    image: require("../assets/icons/question.png")
+    image: require("../assets/icons/archive.png")
   },
   {
-    id: "fertilizers",
+    id: "6",
     name: "Software Engineer",
-    tags: ["topics", "shop"],
+    tags: ["topics", "more"],
     count: 47,
-    image: require("../assets/icons/question.png")
+    image: require("../assets/icons/algorithm.png")
   }
 ];
 

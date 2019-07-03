@@ -119,16 +119,11 @@ class Explore extends Component {
       <Block>
         <Block flex={false} row center space="between" style={styles.header}>
           <Text h1 bold>
-            Topic Name
+            Javascript
           </Text>
           {this.renderSearch()}
         </Block>
         <FlatList
-          // ItemSeparatorComponent={() => (
-          //   <View
-          //     style={{ height: 2, width: "100%", backgroundColor: "lightgray" }}
-          //   />
-          // )}
           keyExtractor={item => item.name}
           data={this.state.countries}
           renderItem={({ item }) => (
@@ -140,8 +135,7 @@ class Explore extends Component {
                   marginRight: 25,
                   marginTop: 25,
                   padding: 25,
-
-                  backgroundColor: "lightgray",
+                  backgroundColor: "#f9fafb",
                   shadowColor: theme.colors.black,
                   shadowOffset: { width: 0, height: 2 },
                   shadowOpacity: 0.1,
