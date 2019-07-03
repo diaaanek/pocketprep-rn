@@ -21,7 +21,7 @@ const { width, height } = Dimensions.get("window");
 class Explore extends Component {
   state = {
     loading: true,
-    countries: [
+    questions: [
       {
         name: "What is a closure?",
         imageSrc: "https://"
@@ -68,11 +68,11 @@ class Explore extends Component {
       <Block>
         <Block flex={false} row center space="between" style={styles.header}>
           <Text h1 bold>
-            Javascript
+            {this.props.navigation.getParam("name", "no name")}
           </Text>
         </Block>
         {this.state.loading && (
-          <ActivityIndicator size="large" color="#0000ff" />
+          <ActivityIndicator size="large" color="#17b2ff" />
         )}
         <FlatList
           keyExtractor={item => item.name}

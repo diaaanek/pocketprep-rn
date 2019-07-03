@@ -22,6 +22,12 @@ class Browse extends Component {
     this.setState({ categories: this.props.categories });
   }
 
+  handleCatTap = category => {
+    this.props.navigation.navigate("Explore", {
+      name: category.name
+    });
+  };
+
   handleTab = tab => {
     const { categories } = this.props;
     const filtered = categories.filter(category =>
@@ -76,7 +82,8 @@ class Browse extends Component {
             {categories.map(category => (
               <TouchableOpacity
                 key={category.name}
-                onPress={() => navigation.navigate("Explore", { category })}
+                onPress={() => this.handleCatTap(category)}
+                // onPress={() => navigation.navigate("Explore", { category })}
               >
                 <Card center middle shadow style={styles.category}>
                   <Badge margin={[0, 0, 15]} size={50} color="#8ad8ff">

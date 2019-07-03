@@ -25,57 +25,45 @@ class Product extends Component {
     };
   };
 
-  renderGallery() {
-    const { product } = this.props;
-    return (
-      <FlatList
-        horizontal
-        pagingEnabled
-        scrollEnabled
-        showsHorizontalScrollIndicator={false}
-        snapToAlignment="center"
-        data={product.images}
-        keyExtractor={(item, index) => `${index}`}
-        renderItem={({ item }) => (
-          <Image
-            source={item}
-            resizeMode="contain"
-            style={{ width, height: height / 2.8 }}
-          />
-        )}
-      />
-    );
-  }
+  // renderGallery() {
+  //   const { product } = this.props;
+  //   return (
+  //     <FlatList
+  //       horizontal
+  //       pagingEnabled
+  //       scrollEnabled
+  //       showsHorizontalScrollIndicator={false}
+  //       snapToAlignment="center"
+  //       data={product.images}
+  //       keyExtractor={(item, index) => `${index}`}
+  //       renderItem={({ item }) => (
+  //         <Image
+  //           source={item}
+  //           resizeMode="contain"
+  //           style={{ width, height: height / 2.8 }}
+  //         />
+  //       )}
+  //     />
+  //   );
+  // }
 
   render() {
     const { product } = this.props;
 
     return (
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {this.renderGallery()}
-
+      <ScrollView scrollEnabled>
         <Block style={styles.product}>
-          <Text h2 bold>
-            {this.props.navigation.getParam("title", "no title")}
-          </Text>
           <Image
             style={{ width: "100%", height: "100%" }}
             source={{ uri: this.props.navigation.getParam("imageSrc", "") }}
           />
-          {/* <Block flex={false} row margin={[theme.sizes.base, 0]}>
-            {product.tags.map(tag => (
-              <Text key={`tag-${tag}`} caption gray style={styles.tag}>
-                {tag}
-              </Text>
-            ))}
-          </Block>
-          <Text body gray light height={22}>
-            {product.description}
-          </Text> */}
+          <Text h2 bold>
+            {this.props.navigation.getParam("title", "no title")}
+          </Text>
 
-          <Divider margin={[theme.sizes.padding * 0.9, 0]} />
+          {/* <Divider margin={[theme.sizes.padding * 0.9, 0]} /> */}
 
-          {/* <Block>
+          <Block>
             <Text body semibold>
               Resources
             </Text>
@@ -98,7 +86,7 @@ class Product extends Component {
                 <Text gray>+{product.images.slice(3).length}</Text>
               </Block>
             </Block>
-          </Block> */}
+          </Block>
         </Block>
       </ScrollView>
     );
