@@ -11,6 +11,7 @@ import {
   ScrollView
 } from "react-native";
 
+import Autolink from "react-native-autolink";
 import { Button, Block, Text } from "../components";
 import { theme } from "../constants";
 
@@ -90,8 +91,9 @@ class Welcome extends Component {
               height={24}
               style={{ marginBottom: theme.sizes.base }}
             >
-              If you have any quesrions of converns regarding this Privacy
-              Policy, please send us an email at dkorongy@gmail.com
+              If you have any questions of converns regarding this Privacy
+              Policy, please send us an email at
+              <Autolink text=" mailto:dkorongy@gmail.com" />
             </Text>
           </ScrollView>
 

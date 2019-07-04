@@ -3,7 +3,7 @@ const categories = [
     id: "1",
     name: "General",
     tags: ["topics", "inspirations"],
-    count: 147,
+    count: 25,
     image: require("../assets/icons/question.png")
   },
   {
@@ -17,7 +17,7 @@ const categories = [
     id: "3",
     name: "Javascript",
     tags: ["topics", "inspirations"],
-    count: 68,
+    count: 50,
     image: require("../assets/icons/javascript.png")
   },
   {
@@ -31,14 +31,14 @@ const categories = [
     id: "5",
     name: "Product",
     tags: ["topics", "more"],
-    count: 47,
+    count: 10,
     image: require("../assets/icons/archive.png")
   },
   {
     id: "6",
     name: "Software Engineer",
     tags: ["topics", "more"],
-    count: 47,
+    count: 15,
     image: require("../assets/icons/algorithm.png")
   }
 ];

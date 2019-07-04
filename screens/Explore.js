@@ -48,12 +48,17 @@ class Explore extends Component {
     console.log(item.name);
     this.props.navigation.navigate("Product", {
       title: item.data.title,
-      imageSrc: item.data.preview.images[0].source.url
+      answer1: item.data.answer1,
+      answer2: item.data.answer2,
+      resources: item.data.resources
+      // imageSrc: item.data.preview.images[0].source.url
     });
   };
 
   componentWillMount() {
-    fetch("https://reddit.com/r/aww.json?raw_json=1")
+    fetch(
+      "https://gist.githubusercontent.com/diaaanek/2c871b8414e6d42889350fc378443733/raw/543a5aa2a9fc0bdc43f36d5781adcc72e128adb0/posts.json"
+    )
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -86,6 +91,7 @@ class Explore extends Component {
                   marginLeft: 25,
                   marginRight: 25,
                   marginTop: 25,
+                  marginBottom: 25,
                   padding: 25,
                   backgroundColor: "#f9fafb",
                   shadowColor: theme.colors.black,

@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons";
 
+import Autolink from "react-native-autolink";
 import { Button, Divider, Input, Block, Text } from "../components";
 import { theme, mocks } from "../constants";
 
@@ -25,67 +26,36 @@ class Product extends Component {
     };
   };
 
-  // renderGallery() {
-  //   const { product } = this.props;
-  //   return (
-  //     <FlatList
-  //       horizontal
-  //       pagingEnabled
-  //       scrollEnabled
-  //       showsHorizontalScrollIndicator={false}
-  //       snapToAlignment="center"
-  //       data={product.images}
-  //       keyExtractor={(item, index) => `${index}`}
-  //       renderItem={({ item }) => (
-  //         <Image
-  //           source={item}
-  //           resizeMode="contain"
-  //           style={{ width, height: height / 2.8 }}
-  //         />
-  //       )}
-  //     />
-  //   );
-  // }
-
   render() {
     const { product } = this.props;
 
     return (
       <ScrollView scrollEnabled>
         <Block style={styles.product}>
-          <Image
-            style={{ width: "100%", height: "100%" }}
-            source={{ uri: this.props.navigation.getParam("imageSrc", "") }}
-          />
-          <Text h2 bold>
+          <Text primary h2 bold>
             {this.props.navigation.getParam("title", "no title")}
           </Text>
 
-          {/* <Divider margin={[theme.sizes.padding * 0.9, 0]} /> */}
+          <Divider margin={[theme.sizes.padding * 0.9, 0]} />
 
           <Block>
             <Text body semibold>
-              Resources
+              {this.props.navigation.getParam("answer1", "no title")}
             </Text>
+
             <Block row margin={[theme.sizes.padding * 0.9, 0]}>
-              {product.images.slice(1, 3).map((image, index) => (
-                <Image
-                  key={`gallery-${index}`}
-                  source={image}
-                  style={styles.image}
-                />
-              ))}
-              <Block
-                flex={false}
-                card
-                center
-                middle
-                color="rgba(197,204,214,0.20)"
-                style={styles.more}
-              >
-                <Text gray>+{product.images.slice(3).length}</Text>
-              </Block>
+              <Text body semibold>
+                {this.props.navigation.getParam("answer2", "no title")}
+              </Text>
             </Block>
+            <Button
+              gradient
+              onPress={() => this.setState({ showTerms: false })}
+            >
+              <Text body center white>
+                Resources
+              </Text>
+            </Button>
           </Block>
         </Block>
       </ScrollView>

@@ -92,9 +92,9 @@ class Browse extends Component {
                   <Text body medium height={20}>
                     {category.name}
                   </Text>
-                  {/* <Text gray caption>
-                    {category.count} products
-                  </Text> */}
+                  <Text gray caption>
+                    {category.count} questions
+                  </Text>
                 </Card>
               </TouchableOpacity>
             ))}

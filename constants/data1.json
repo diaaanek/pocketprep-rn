@@ -1,0 +1,66 @@
+{
+  "data": {
+    "children": [
+      {
+        "kind": "t3",
+        "data": {
+          "id": 1,
+          "title": "What are closures?",
+          "answer1": "The ECMA script standard does not specify which sort algorithm is to be used. Indeed, different browsers feature different sort algorithms. Depending on the type of array, different sort methods are used.",
+          "answer2": "Webkit implements some variation of quick-sort (Intro Sort)for numeric arrays. For non-numeric array, it uses merge-sort.",
+          "resources": "https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36"
+        }
+      },
+      {
+        "kind": "t3",
+        "data": {
+          "id": 2,
+          "title": "Which algorithm does the JavaScript Array#sort() function use.?",
+          "answer1": "A closure gives you access to an outer function’s scope from an inner function.",
+          "answer2": "To use a closure, simply define a function inside another function and expose it To expose a function, return it or pass it to another function. The inner function will have access to the variables in the outer function scope, even after the outer function has returned.",
+          "resources": "https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36"
+        }
+      },
+      {
+        "kind": "t3",
+        "data": {
+          "id": 3,
+          "title": "What is variable hoisting?",
+          "answer1": "A closure gives you access to an outer function’s scope from an inner function.",
+          "answer2": "To use a closure, simply define a function inside another function and expose it To expose a function, return it or pass it to another function. The inner function will have access to the variables in the outer function scope, even after the outer function has returned.",
+          "resources": "https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36"
+        }
+      },
+      {
+        "kind": "t3",
+        "data": {
+          "id": 1,
+          "title": "What are closures?",
+          "answer1": "The ECMA script standard does not specify which sort algorithm is to be used. Indeed, different browsers feature different sort algorithms. Depending on the type of array, different sort methods are used.",
+          "answer2": "Webkit implements some variation of quick-sort (Intro Sort)for numeric arrays. For non-numeric array, it uses merge-sort.",
+          "resources": "https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36"
+        }
+      },
+      {
+        "kind": "t3",
+        "data": {
+          "id": 4,
+          "title": "Is JavaScript a pass-by-reference or pass-by-value language?",
+          "answer1": "Javascript is always pass by value, but when a variable refers to an object (including arrays), the “value” is a reference to the object.",
+          "answer2": "However, changing a property of an object referenced by a variable does change the underlying object",
+          "resources": "https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36"
+        }
+      },
+      {
+        "kind": "t3",
+        "data": {
+          "id": 5,
+          "title": "Explain JavaScript Prototypical Inheritance",
+          "answer1": "In a nutshell, prototypal inheritance is when an object inherits from another object.",
+          "answer2": "To use a closure, simply define a function inside another function and expose it To expose a function, return it or pass it to another function. The inner function will have access to the variables in the outer function scope, even after the outer function has returned.",
+          "resources": "https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36"
+        }
+      }
+    ]
+  }
+}
